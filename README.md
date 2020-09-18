@@ -6,7 +6,7 @@ For now, only the testing model and the corresponding code is available. We will
 
 The glove embedding is at.
 
-The extracted I3D features for [TaCoS]:https://pan.baidu.com/s/11QQvGoXB0LkDPEHbj9bWKA where the extraction code is **th08**
+The extracted I3D features for [TaCoS](https://pan.baidu.com/s/11QQvGoXB0LkDPEHbj9bWKA) where the extraction code is **th08**
 
 and Charades-STA is at .
 
