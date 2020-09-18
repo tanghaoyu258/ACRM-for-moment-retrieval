@@ -1,0 +1,17 @@
+DYNAMIC_FILTER:
+    QUERY_MULTIHEAD:
+        EMBED_DIM: 300
+        NUM_HEADS: 3
+        DROPOUT: 0.5
+        BIAS: False
+        ADD_BIAS_ATTN: False
+        ADD_ZERO_ATTN: False
+
+    VIDEO_MULTIHEAD:
+        EMBED_DIM: 512
+        NUM_LAYERS: 1
+        NUM_HEADS: 8
+        DROPOUT: 0.4
+        BIAS: False
+        ADD_BIAS_ATTN: False
+        ADD_ZERO_ATTN: False
