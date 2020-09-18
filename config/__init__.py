@@ -13,8 +13,8 @@ cfg = get_cfg_defaults()
 
 cfg.merge_from_file("config/dynamic_filter/{}.yaml".format(cfg.DYNAMIC_FILTER.TAIL_MODEL.lower()))
 cfg.merge_from_file("config/dynamic_filter/{}.yaml".format(cfg.DYNAMIC_FILTER.HEAD_MODEL.lower()))
-cfg.merge_from_file("config/dynamic_filter/{}.yaml".format(cfg.EXCL_QUERY.TAIL_MODEL.lower()))
-cfg.merge_from_file("config/dynamic_filter/{}.yaml".format(cfg.EXCL_VIDEO.TAIL_MODEL.lower()))
+cfg.merge_from_file("config/dynamic_filter/{}.yaml".format(cfg.ACRM_QUERY.TAIL_MODEL.lower()))
+cfg.merge_from_file("config/dynamic_filter/{}.yaml".format(cfg.ACRM_VIDEO.TAIL_MODEL.lower()))
 
 ## Merging solver configuration
 print(cfg.SOLVER.TYPE.lower())
