@@ -27,7 +27,7 @@ def trainer(cfg):
     print(dataset_size_train)
     print(dataset_size_test)
 
-    model = torch.load("./checkpoints/{}/model_{}_epoch_{}".format(cfg.EXPERIMENT_NAME, cfg.MODEL_NAME, cfg.MODE_TRAIN_RESUME_EPOCH))
+    model = torch.load("./checkpoints/{}/model_{}".format(cfg.EXPERIMENT_NAME, cfg.MODEL_NAME))
     # if cfg.MODE_TRAIN == 'resume':
     #     model = torch.load("./checkpoints/{}/model_{}_epoch_{}".format(cfg.EXPERIMENT_NAME, cfg.MODEL_NAME, cfg.MODE_TRAIN_RESUME_EPOCH))
            
