@@ -6,7 +6,7 @@ For now, only the testing model and the corresponding code is available. We will
 
 The pretrained models are provided for [Charades-STA](https://pan.baidu.com/s/1u_MvZA2yG7hI1VvAXmWLeA) and TaCoS.
 
-The extracted I3D features for [TaCoS](https://pan.baidu.com/s/11QQvGoXB0LkDPEHbj9bWKA) and for [Charades-STA](https://pan.baidu.com/s/1KpZI0JT0zGbmX1IRlTAVow) is  provided for both of them.
+The extracted I3D features for [TaCoS](https://pan.baidu.com/s/1SyadxAp5gkst6rVP0RImLA) and for [Charades-STA](https://pan.baidu.com/s/1ATGRLtksAR5Y2hLBZvW5vw) is  provided for both of them.
 
 The above models and features are stored in Baiduyun disk, where the extraction key is **th08** for all of them.
 
