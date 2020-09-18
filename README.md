@@ -8,4 +8,4 @@ The glove embedding is at.
 
 The extracted I3D features for TaCoS and Charades-STA is at.
 
-The code is based on . And thanks to their features.
+The code is based on https://github.com/crodriguezo/TMLGA. And thanks to their features.
