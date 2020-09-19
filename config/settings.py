@@ -7,7 +7,7 @@ HOME = os.environ["HOME"]
 # /disk/thy/WSDEC/TGNmodel/glove.6B.300d.txt
 DATA_PATH = os.path.join(HOME, "data", "TMLGA")
 
-ANET_FEATURES_PATH = '/disk/thy/WSDEC/data/'
-CHARADES_FEATURES_PATH = '/disk/thy/WSDEC/data/'
+ANET_FEATURES_PATH = ANNOTATIONS_PATH
+CHARADES_FEATURES_PATH = ANNOTATIONS_PATH
 EMBEDDINGS_PATH = os.path.join(DATA_PATH, "word_embeddings")
 # EMBEDDINGS_PATH = '/disk/thy/WSDEC/TGNmodel/'
