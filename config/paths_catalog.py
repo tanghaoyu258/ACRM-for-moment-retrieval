@@ -13,7 +13,7 @@ class DatasetCatalog(object):
     DATASETS = {
         "anet_cap_train": {
             "feature_path": os.path.join(
-                ANET_FEATURES_PATH, 'anet_c3d.hdf5'),
+                ANET_FEATURES_PATH, 'anet-cap/anet_c3d.hdf5'),
             "ann_file_path": os.path.join(
                 ANNOTATIONS_PATH, 'anet-cap/train.json'),
             "embeddings_path": os.path.join(
@@ -22,7 +22,7 @@ class DatasetCatalog(object):
 
         "anet_cap_test": {
             "feature_path": os.path.join(
-                ANET_FEATURES_PATH, 'anet_c3d.hdf5'),
+                ANET_FEATURES_PATH, 'anet-cap/anet_c3d.hdf5'),
             "ann_file_path": os.path.join(
                 ANNOTATIONS_PATH, 'anet-cap/val_2.json'),
             "embeddings_path":
@@ -32,7 +32,7 @@ class DatasetCatalog(object):
 
         "charades_sta_train": {
             "feature_path": os.path.join(
-                CHARADES_FEATURES_PATH, 'charades_i3d.hdf5'),
+                CHARADES_FEATURES_PATH, 'charades-sta/charades_i3d.hdf5'),
             "ann_file_path":
                 os.path.join(
                     ANNOTATIONS_PATH, 'charades-sta/charades_sta_train_tokens.json'),
@@ -42,7 +42,7 @@ class DatasetCatalog(object):
 
         "charades_sta_test": {
             "feature_path": os.path.join(
-                CHARADES_FEATURES_PATH, 'charades_i3d.hdf5'),
+                CHARADES_FEATURES_PATH, 'charades-sta/charades_i3d.hdf5'),
             "ann_file_path": os.path.join(
                 ANNOTATIONS_PATH, 'charades-sta/charades_sta_test_tokens.json'),
             "embeddings_path": os.path.join(
@@ -50,7 +50,7 @@ class DatasetCatalog(object):
         },
         "tacos_train": {
             "feature_path": os.path.join(
-                ANET_FEATURES_PATH, 'tacos_c3d.hdf5'),
+                ANET_FEATURES_PATH, 'tacos/tacos_c3d.hdf5'),
             "ann_file_path": os.path.join(
                 ANNOTATIONS_PATH, 'tacos/tacos_train.json'),
             "embeddings_path": os.path.join(
@@ -59,7 +59,7 @@ class DatasetCatalog(object):
 
         "tacos_test": {
             "feature_path": os.path.join(
-                ANET_FEATURES_PATH, 'tacos_c3d.hdf5'),
+                ANET_FEATURES_PATH, 'tacos/tacos_c3d.hdf5'),
             "ann_file_path": os.path.join(
                 ANNOTATIONS_PATH, 'tacos/tacos_test.json'),
             "embeddings_path":
