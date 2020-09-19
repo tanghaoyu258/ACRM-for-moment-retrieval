@@ -48,24 +48,6 @@ class DatasetCatalog(object):
             "embeddings_path": os.path.join(
                 EMBEDDINGS_PATH, 'glove.840B.300d.txt')
         },
-        "vatex_train": {
-            "feature_path": os.path.join(
-                ANET_FEATURES_PATH, 'vatex_fea'),
-            "ann_file_path": os.path.join(
-                ANNOTATIONS_PATH, 'vatex/vatex_train.json'),
-            "embeddings_path": os.path.join(
-                EMBEDDINGS_PATH, 'glove.840B.300d.txt'),
-        },
-
-        "vatex_test": {
-            "feature_path": os.path.join(
-                ANET_FEATURES_PATH, 'vatex_fea'),
-            "ann_file_path": os.path.join(
-                ANNOTATIONS_PATH, 'vatex/vatex_test.json'),
-            "embeddings_path":
-                os.path.join(
-                    EMBEDDINGS_PATH, 'glove.840B.300d.txt'),
-        },
         "tacos_train": {
             "feature_path": os.path.join(
                 ANET_FEATURES_PATH, 'tacos_c3d.hdf5'),
