@@ -96,19 +96,6 @@ class DatasetCatalog(object):
                 factory="ANET_CAP",
                 args=args,
             )
-        if "vatex" in name:
-            data_dir = DatasetCatalog.DATA_DIR
-            attrs = DatasetCatalog.DATASETS[name]
-            args = dict(
-                # features_path=os.path.join(data_dir, attrs["feature_path"]),
-                features_path=attrs["feature_path"],
-                ann_file_path=os.path.join(data_dir, attrs["ann_file_path"]),
-                embeddings_path=os.path.join(data_dir, attrs["embeddings_path"]),
-            )
-            return dict(
-                factory="VATEX",
-                args=args,
-            )
         if "tacos" in name:
             data_dir = DatasetCatalog.DATA_DIR
             attrs = DatasetCatalog.DATASETS[name]
