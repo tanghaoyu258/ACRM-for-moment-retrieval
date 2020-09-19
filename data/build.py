@@ -3,7 +3,6 @@ from . import datasets as D
 from torch.utils.data import DataLoader
 from .collate_batch import BatchCollator
 from utils.imports import import_file
-from .collate_batch_vatexgcn import BatchCollator_GCN
 def build_dataset(dataset_name, dataset_catalog, cfg):
     datasets = []
 
