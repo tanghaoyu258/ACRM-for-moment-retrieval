@@ -3,7 +3,7 @@ import data
 import json
 import torch
 import solver
-# import modeling
+import modeling
 import numpy as np
 
 from torch.nn.init import xavier_normal_, normal_
@@ -28,17 +28,11 @@ def trainer(cfg):
     print(dataset_size_test)
 
     model = torch.load("./checkpoints/{}/model_{}_{}".format(cfg.EXPERIMENT_NAME, cfg.MODEL_NAME,cfg.EXPERIMENT_NAME))
-    # if cfg.MODE_TRAIN == 'resume':
-    #     model = torch.load("./checkpoints/{}/model_{}_epoch_{}".format(cfg.EXPERIMENT_NAME, cfg.MODEL_NAME, cfg.MODE_TRAIN_RESUME_EPOCH))
-           
-    # torch.save(model, "./checkpoints/{}/model_epoch_{}".format(cfg.EXPERIMENT_NAME,epoch))
 
     model.cuda()
     optimizer = solver.make_optimizer(cfg, model)
     #model = torch.load("/home/crodriguezo/projects/phd/moment-localization-with-NLP/mlnlp_lastversion/checkpoints/anet_config7/model_epoch_80")
     
-
-    vis_train = Visualization(cfg, dataset_size_train)
     vis_test  = Visualization(cfg, dataset_size_test, is_train=False)
 
     writer_path = os.path.join(cfg.VISUALIZATION_DIRECTORY, cfg.EXPERIMENT_NAME)
@@ -53,87 +47,9 @@ def trainer(cfg):
             else:
                 normal_(p.data)
 
-    for epoch in range(cfg.EPOCHS):
-#         print("Epoch {}".format(epoch))
-#         model.train()
-#         sumloss = 0
-#         sumsample = 0
+    if True:
+
         adjust_learning_rate(cfg.SOLVER.BASE_LR, optimizer, epoch)
-#         for iteration, batch in enumerate(dataloader_train):
-#             index     = batch[0]
-
-#             videoFeat = batch[1].cuda()
-#             # print(np.any(np.isnan(videoFeat.cpu().detach().numpy())))
-#             videoFeat_lengths = batch[2].cuda()
-#             # print(np.any(np.isnan(videoFeat_lengths.cpu().detach().numpy())))
-#             tokens         = batch[3].cuda()
-#             # print(np.any(np.isnan(tokens.cpu().detach().numpy())))
-#             tokens_lengths = batch[4].cuda()
-#             # print(np.any(np.isnan(tokens_lengths.cpu().detach().numpy())))
-#             if cfg.MODEL_NAME == 'TMLGA':
-#                 start    = batch[5].cuda()
-#                 end      = batch[6].cuda()
-#                 localiz  = batch[7].cuda()
-#                 frame_start = batch[13]
-#                 frame_end = batch[14]
-#             else:
-#                 start    = batch[5]
-#                 end      = batch[6]
-#                 localiz  = batch[7]
-#                 frame_start = batch[13].cuda()
-#                 frame_end = batch[14].cuda()
-
-#             localiz_lengths = batch[8]
-#             time_starts = batch[9]
-#             time_ends = batch[10]
-#             factors = batch[11]
-#             fps = batch[12]
-#             duration = batch[15]
-#             vid_names = batch[16]
-#             loss, individual_loss, pred_start, pred_end, attention, atten_loss = model(videoFeat, videoFeat_lengths, tokens, tokens_lengths, start, end, localiz, frame_start, frame_end)
-#             sumloss += loss.item()* float(videoFeat.shape[0])
-#             sumsample += videoFeat.shape[0]
-#             print("Loss :{}".format(loss))
-#             optimizer.zero_grad()
-#             loss.backward()
-#             torch.nn.utils.clip_grad_norm_(model.parameters(), 5)
-#             optimizer.step()
-
-#             vis_train.run(index, pred_start, pred_end, start, end, videoFeat_lengths, epoch, loss.detach(), individual_loss,\
-#                  attention, atten_loss, time_starts, time_ends, factors, fps,duration,vid_names)
-
-#             writer.add_scalar(
-#                 f'mlnlp/Progress_Loss',
-#                 loss.item(),
-#                 total_iterations)
-
-#             writer.add_scalar(
-#                 f'mlnlp/Progress_Attention_Loss',
-#                 atten_loss.item(),
-#                 total_iterations)
-
-#             writer.add_scalar(
-#                 f'mlnlp/Progress_Mean_IoU',
-#                 vis_train.mIoU[-1],
-#                 total_iterations)
-
-#             total_iterations += 1.
-#             # del videoFeat,videoFeat_lengths,tokens,tokens_lengths,start,end,localiz
-#             torch.cuda.empty_cache()
-#         print("Train_Loss :{}".format(sumloss/sumsample))
-
-#         writer.add_scalar(
-#             f'mlnlp/Train_Loss',
-#             np.mean(vis_train.loss),
-#             epoch)
-
-#         writer.add_scalar(
-#             f'mlnlp/Train_Mean_IoU',
-#             np.mean(vis_train.mIoU),
-#             epoch)
-
-#         vis_train.plot(epoch)
-#         torch.save(model, "./checkpoints/{}/model_{}_epoch_{}".format(cfg.EXPERIMENT_NAME,cfg.MODEL_NAME,epoch))
 
         model.eval()
         sumloss = 0
@@ -260,3 +176,4 @@ def tester(cfg):
         aux = vis_test.run(index, pred_start, pred_end, start, end, videoFeat_lengths, epoch, loss.detach(), individual_loss, attention, atten_loss, time_starts, time_ends, factors, fps)
         total_iterations_val += 1
     a = vis_test.plot(epoch)
+
