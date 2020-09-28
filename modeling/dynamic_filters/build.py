@@ -1,9 +1,9 @@
 import torch
 import numpy as np
 from torch import nn
-
 import modeling.dynamic_filters as DF
 import utils.pooling as POOLING
+
 # from interactor import InteractorwoLSTM
 class DynamicFilter(nn.Module):
     def __init__(self, cfg):
@@ -48,11 +48,32 @@ class ACRM_query(nn.Module):
         output = self.dropout_layer(output)
         output = self.pooling_layer(output, video_fea, lengths)
         output = self.head_df(output)
-        return output, lengths 
+        return output, lengths
 
 class ACRM_video(nn.Module):
     def __init__(self, cfg):
         super(ACRM_video, self).__init__()
+        self.cfg = cfg
+        self.dropout_layer = nn.Dropout(cfg.DYNAMIC_FILTER.LSTM_VIDEO.DROPOUT)
+        factory = getattr(DF, cfg.ACRM_VIDEO.TAIL_MODEL)
+        self.tail_df = factory(cfg)
+
+        # factory = getattr(POOLING, cfg.ACRM_QUERY.POOLING)
+        # self.pooling_layer = factory()
+
+        factory = getattr(DF, cfg.ACRM_VIDEO.HEAD_MODEL)
+        self.head_df = factory(cfg)
+
+    def forward(self, sequences, lengths, masks = None):
+        output, _ = self.tail_df(sequences, lengths, masks)
+        output = self.dropout_layer(output)
+        # output = self.pooling_layer(output, lengths)
+        output = self.head_df(output)
+        return output
+
+class GCN_map(nn.Module):
+    def __init__(self, cfg):
+        super(GCN_map, self).__init__()
         self.cfg = cfg
         self.dropout_layer = nn.Dropout(cfg.DYNAMIC_FILTER.LSTM_VIDEO.DROPOUT)
         factory = getattr(DF, cfg.ACRM_VIDEO.TAIL_MODEL)

@@ -63,7 +63,7 @@ class InteractorwoLSTM(nn.Module):
         # c_r_prev = torch.zeros([n_batch, self.hidden_size_ilstm], device=self.device)
         token_mask = self.get_mask_from_sequence_lengths(lengths,N) #(n_batch, N)
         outputs = []
-
+        attention_weights = []
         for t in range(T):
             beta_t = self.projection_w(torch.tanh(self.projection_S(h_s) +
                                                   self.projection_V(h_v[:, t, :]).unsqueeze(dim=1))
@@ -80,6 +80,7 @@ class InteractorwoLSTM(nn.Module):
             # h_r_new, c_r_new = self.iLSTM(r_t, (h_r_prev, c_r_prev))
             outputs.append(H_t_s.unsqueeze(dim=1))
             # h_r_prev, c_r_prev = h_r_new, c_r_new
+            # attention_weights.append(alpha_t.unsqueeze(dim=1))
 
         return torch.cat(outputs, dim=1)
 
