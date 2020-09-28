@@ -31,7 +31,7 @@ def trainer(cfg):
     if cfg.MODE_TRAIN == 'resume':
         model = torch.load("./checkpoints/{}/model_{}_epoch_{}".format(cfg.EXPERIMENT_NAME, cfg.MODEL_NAME, cfg.MODE_TRAIN_RESUME_EPOCH))
     
-    model = torch.load("./checkpoints/{}/model_{}_epoch_{}".format(cfg.EXPERIMENT_NAME, cfg.MODEL_NAME, 6))
+    model = torch.load("./checkpoints/{}/model_{}".format(cfg.EXPERIMENT_NAME, cfg.MODEL_NAME))
 
     model.cuda()
     optimizer = solver.make_optimizer(cfg, model)
