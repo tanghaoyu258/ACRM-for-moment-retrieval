@@ -14,6 +14,14 @@ class Localization_ACRM(nn.Module):
         self.cfg = cfg
         self.batch_size = cfg.BATCH_SIZE_TRAIN
         self.model_df  = ACRM_query(cfg)
+        # if cfg.ACRM_VIDEO.TAIL_MODEL == "LSTM":
+        #     self.model_video_GRU = nn.LSTM(input_size   = cfg.DYNAMIC_FILTER.LSTM_VIDEO.INPUT_SIZE,
+        #                                     num_layers   = cfg.DYNAMIC_FILTER.LSTM_VIDEO.NUM_LAYERS,
+        #                                     hidden_size  = cfg.DYNAMIC_FILTER.LSTM_VIDEO.HIDDEN_SIZE,
+        #                                     bias         = cfg.DYNAMIC_FILTER.LSTM_VIDEO.BIAS,
+        #                                     dropout      = cfg.DYNAMIC_FILTER.LSTM_VIDEO.DROPOUT,
+        #                                     bidirectional= cfg.DYNAMIC_FILTER.LSTM_VIDEO.BIDIRECTIONAL,
+        #                                     batch_first  = cfg.DYNAMIC_FILTER.LSTM_VIDEO.BATCH_FIRST)
         
         self.model_video_GRU = ACRM_video(cfg) 
         # self.reduction  = nn.Linear(cfg.REDUCTION.INPUT_SIZE, cfg.REDUCTION.OUTPUT_SIZE)
