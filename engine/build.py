@@ -22,17 +22,23 @@ def adjust_learning_rate(lr, optimizer, epoch):
 
 def trainer(cfg):
     print('trainer')
-    #dataloader_train, dataset_size_train = data.make_dataloader(cfg, is_train=True)
+    dataloader_train, dataset_size_train = data.make_dataloader(cfg, is_train=True)
     dataloader_test, dataset_size_test   = data.make_dataloader(cfg, is_train=False)
-    #print(dataset_size_train)
+    print(dataset_size_train)
     print(dataset_size_test)
 
-    model = torch.load("./checkpoints/{}/model_{}_{}".format(cfg.EXPERIMENT_NAME, cfg.MODEL_NAME,cfg.EXPERIMENT_NAME))
+    model = modeling.build(cfg)
+    if cfg.MODE_TRAIN == 'resume':
+        model = torch.load("./checkpoints/{}/model_{}_epoch_{}".format(cfg.EXPERIMENT_NAME, cfg.MODEL_NAME, cfg.MODE_TRAIN_RESUME_EPOCH))
+    
+    model = torch.load("./checkpoints/{}/model_{}_epoch_{}".format(cfg.EXPERIMENT_NAME, cfg.MODEL_NAME, 6))
 
     model.cuda()
     optimizer = solver.make_optimizer(cfg, model)
     #model = torch.load("/home/crodriguezo/projects/phd/moment-localization-with-NLP/mlnlp_lastversion/checkpoints/anet_config7/model_epoch_80")
     
+
+    vis_train = Visualization(cfg, dataset_size_train)
     vis_test  = Visualization(cfg, dataset_size_test, is_train=False)
 
     writer_path = os.path.join(cfg.VISUALIZATION_DIRECTORY, cfg.EXPERIMENT_NAME)
@@ -40,17 +46,8 @@ def trainer(cfg):
 
     total_iterations = 0
     total_iterations_val = 0
-    for p in model.parameters():
-        if p.requires_grad:
-            if len(p.data.shape) > 1:
-                xavier_normal_(p.data)
-            else:
-                normal_(p.data)
-
-    if True:
-
-        adjust_learning_rate(cfg.SOLVER.BASE_LR, optimizer, epoch)
-
+    cfg.EPOCHS =1
+    for epoch in range(cfg.EPOCHS):
         model.eval()
         sumloss = 0
         sumsample = 0
@@ -108,7 +105,7 @@ def trainer(cfg):
 
                 total_iterations_val += 1
                 # del videoFeat,videoFeat_lengths,tokens,tokens_lengths,start,end,localiz
-                torch.cuda.empty_cache()
+                # torch.cuda.empty_cache()
         print("Test_Loss :{}".format(sumloss/sumsample))
         writer.add_scalar(
             f'mlnlp/Valid_Loss',
@@ -176,4 +173,5 @@ def tester(cfg):
         aux = vis_test.run(index, pred_start, pred_end, start, end, videoFeat_lengths, epoch, loss.detach(), individual_loss, attention, atten_loss, time_starts, time_ends, factors, fps)
         total_iterations_val += 1
     a = vis_test.plot(epoch)
+
 
