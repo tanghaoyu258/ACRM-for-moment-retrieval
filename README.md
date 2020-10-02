@@ -10,7 +10,7 @@ The extracted I3D features for [TaCoS](https://pan.baidu.com/s/1SyadxAp5gkst6rVP
 
 The above models and features are stored in Baiduyun disk, where the extraction key is **th08** for all of them.
 
-The pre-trained glove embedding that we use is [glove.840B.300d.zip](https://nlp.stanford.edu/projects/glove/) trained with the Common Crawl (840B tokens, 2.2M vocab, cased, 300d vectors, 2.03 GB download), which shall be unzipped and put in 'Home_path/data/TMLGA'.
+The pre-trained glove embedding that we use is [glove.840B.300d.zip](https://nlp.stanford.edu/projects/glove/) trained with the Common Crawl (840B tokens, 2.2M vocab, cased, 300d vectors, 2.03 GB download), which shall be unzipped and stored in 'Home_path/data/TMLGA'.
 
 The code is based on https://github.com/crodriguezo/TMLGA. And thanks to their features.
 
