@@ -12,9 +12,9 @@ The above models and features are stored in Baiduyun disk, where the extraction 
 
 The pre-trained glove embedding that we use is [glove.840B.300d.zip](https://nlp.stanford.edu/projects/glove/) trained with the Common Crawl (840B tokens, 2.2M vocab, cased, 300d vectors, 2.03 GB download), which shall be unzipped and stored in 'Home_path/data/TMLGA'.
 
-The code is based on https://github.com/crodriguezo/TMLGA. And thanks to their features.
+The code is based on ``https://github.com/crodriguezo/TMLGA``. And thanks to their features.
 
-run the program with 'python main.py --config-file experiments/tacos_train.yaml'
+run the program with ``python main.py --config-file experiments/tacos_train.yaml``
 
 # Citing
 
