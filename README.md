@@ -15,3 +15,16 @@ The pre-trained glove embedding that we use is [glove.840B.300d.zip](https://nlp
 The code is based on https://github.com/crodriguezo/TMLGA. And thanks to their features.
 
 run the program with 'python main.py --config-file experiments/tacos_train.yaml'
+
+# Citing
+
+If you find our paper useful in your research, please consider citing:
+
+``
+@article{tang2020frame,
+  title={Frame-wise Cross-modal Match for Video Moment Retrieval},
+  author={Tang, Haoyu and Zhu, Jihua and Liu, Meng and Gao, Zan and Cheng, Zhiyong and others},
+  journal={arXiv preprint arXiv:2009.10434},
+  year={2020}
+}
+``
