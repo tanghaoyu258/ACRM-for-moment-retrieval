@@ -22,9 +22,14 @@ If you find our paper useful in your research, please consider citing:
 
 
 ``@article{tang2020frame,``
+
   ``title={Frame-wise Cross-modal Match for Video Moment Retrieval},``
+  
   ``author={Tang, Haoyu and Zhu, Jihua and Liu, Meng and Gao, Zan and Cheng, Zhiyong and others},``
+  
   ``journal={arXiv preprint arXiv:2009.10434},``
+  
  `` year={2020}``
+ 
 ``}``
 
