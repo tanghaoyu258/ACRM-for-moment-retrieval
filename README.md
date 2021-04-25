@@ -20,16 +20,11 @@ run the program with ``python main.py --config-file experiments/tacos_train.yaml
 
 If you find our paper useful in your research, please consider citing:
 
-
-``@article{tang2020frame,``
-
-  ``title={Frame-wise Cross-modal Match for Video Moment Retrieval},``
-  
-  ``author={Tang, Haoyu and Zhu, Jihua and Liu, Meng and Gao, Zan and Cheng, Zhiyong and others},``
-  
-  ``journal={arXiv preprint arXiv:2009.10434},``
-  
- `` year={2020}``
- 
-``}``
+@Article{tang2021frame,
+  author    = {Tang, Haoyu and Zhu, Jihua and Liu, Meng and Gao, Zan and Cheng, Zhiyong},
+  title     = {Frame-wise Cross-modal Matching for Video Moment Retrieval},
+  journal   = {IEEE Transactions on Multimedia},
+  year      = {2021},
+  publisher = {IEEE},
+}
 
