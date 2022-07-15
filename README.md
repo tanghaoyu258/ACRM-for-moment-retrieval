@@ -1,6 +1,6 @@
 # ACRM-for-moment-retrieval
 
-This is the repository of our paper https://arxiv.org/abs/2009.10434. 
+This is the repository of our paper https://ieeexplore.ieee.org/abstract/document/9374685/. 
 
 For now, only the testing model and the corresponding code is available. We will release the whole project once the paper is accepted.
 
